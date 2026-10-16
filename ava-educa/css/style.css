@@ -1,0 +1,22 @@
+/* Estilo da mensagem de erro */
+#mensagemErro {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 15px;
+    display: block;
+}
+
+/* Deixa a borda do input vermelha quando os dados forem inválidos */
+.input-erro {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff8f8;
+}
+
+/* Se a mensagem de erro estiver vazia, ela não ocupa espaço na tela */
+#mensagemErro:empty {
+    display: none;
+}
