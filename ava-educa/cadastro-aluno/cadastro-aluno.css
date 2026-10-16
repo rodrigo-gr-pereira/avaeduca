@@ -1,0 +1,39 @@
+/* Configuração básica para o layout não ficar colado nas bordas do navegador */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+}
+
+/* ==========================================================================
+   TOOLBAR / CABEÇALHO GLOBAL
+   ========================================================================== */
+.toolbar {
+    display: flex;
+    justify-content: space-between; /* Alinha marca à esquerda e usuário à direita */
+    align-items: center;
+    background-color: #2c3e50; /* Cor escura profissional */
+    color: #ffffff;
+    padding: 0 24px;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar-brand {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.toolbar-user {
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+/* Espaçamento para o conteúdo abaixo do cabeçalho */
+.conteudo-principal {
+    padding: 30px;
+}
