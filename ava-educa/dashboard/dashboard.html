@@ -13,19 +13,33 @@
   <header class="toolbar">
     <div class="toolbar-brand">AVA-EDUCA+</div>
     <div class="toolbar-user" id="nomeUsuarioHeader">Carregando...</div>
-
   </header>
-  <main>
-    <section>
-      <h2>Meus cursos</h2>
-      <ul id="listaCursos"></ul>
-    </section>
 
-    <section>
-      <a href="../cadastro-aluno/cadastro-aluno.html">Cadastrar aluno</a>
-    </section>
-    <button id="btnSair" type="button">Sair</button>
-  </main>
+  <!-- CONTAINER DO CORPO DA PÁGINA (MENU LATERAL + CONTEÚDO) -->
+  <div class="app-container">
+
+    <!-- 2. MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href=".../dashboard/dashboard.html" class="nav-btn target-active">Dashboard</a>
+        <button class="nav-btn" disabled title="Funcionalidade indisponível">Cursos</button>
+        <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
+        <button id="btnSair" class="nav-btn btn-sair">Sair</button>
+      </nav>
+    </aside>
+
+    <main class="conteudo-principal">
+      <section>
+        <h2>Meus cursos</h2>
+        <ul id="listaCursos"></ul>
+      </section>
+
+      <section>
+        <a href="../cadastro-aluno/cadastro-aluno.html">Cadastrar aluno</a>
+      </section>
+      <button id="btnSair" type="button">Sair</button>
+    </main>
+  </div>
 </body>
 
 </html>

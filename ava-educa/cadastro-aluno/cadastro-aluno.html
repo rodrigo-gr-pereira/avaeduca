@@ -15,27 +15,41 @@
     <div class="toolbar-user" id="nomeUsuarioHeader">Carregando...</div>
   </header>
 
-  <main>
-    <h1>Cadastrar aluno</h1>
-    <form id="formCadastroAluno">
-      <div>
-        <label for="nome">Nome</label>
-        <input id="nome" name="nome" type="text" required />
-      </div>
-      <div>
-        <label for="email">E-mail</label>
-        <input id="email" name="email" type="email" required />
-      </div>
-      <div>
-        <label for="cpf">CPF</label>
-        <input id="cpf" name="cpf" type="text" required />
-      </div>
-      <button type="submit">Salvar</button>
-    </form>
-    <p id="mensagemCadastro"></p>
-    <p><a href="../dashboard/dashboard.html">Voltar para o dashboard</a></p>
+  <!-- CONTAINER DO CORPO DA PÁGINA (MENU LATERAL + CONTEÚDO) -->
+  <div class="app-container">
 
-  </main>
+    <!-- 2. MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="../dashboard/dashboard.html" class="nav-btn target-active">Dashboard</a>
+        <button class="nav-btn" disabled title="Funcionalidade indisponível">Cursos</button>
+        <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
+        <button id="btnSair" class="nav-btn btn-sair">Sair</button>
+      </nav>
+    </aside>
+
+    <main class="conteudo-principal">
+      <h1>Cadastrar aluno</h1>
+      <form id="formCadastroAluno">
+        <div>
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" required />
+        </div>
+        <div>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="cpf">CPF</label>
+          <input id="cpf" name="cpf" type="text" required />
+        </div>
+        <button type="submit">Salvar</button>
+      </form>
+      <p id="mensagemCadastro"></p>
+      <p><a href="../dashboard/dashboard.html">Voltar para o dashboard</a></p>
+
+    </main>
+  </div>
 </body>
 
 </html>
