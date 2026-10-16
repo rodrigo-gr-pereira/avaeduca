@@ -1,0 +1,62 @@
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* ==========================================================================
+   2. CARD DE LOGIN (CONTAINER PRINCIPAL)
+   ========================================================================== */
+main {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 24px;
+    color: #2c3e50;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+
+/* Estilo da mensagem de erro */
+#mensagemErro {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 15px;
+    display: block;
+}
+
+/* Deixa a borda do input vermelha quando os dados forem inválidos */
+.input-erro {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff8f8;
+}
+
+/* Se a mensagem de erro estiver vazia, ela não ocupa espaço na tela */
+#mensagemErro:empty {
+    display: none;
+}

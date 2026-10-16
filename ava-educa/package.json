@@ -1,0 +1,10 @@
+{
+  "name": "ava-educa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "node --check js/auth.js && node --check login/login.js && node --check dashboard/dashboard.js && node --check cadastro-aluno/cadastro-aluno.js"
+  }
+}
