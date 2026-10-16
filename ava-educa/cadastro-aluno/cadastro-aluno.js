@@ -41,4 +41,13 @@ if (formCadastroAluno) {
 
         formCadastroAluno.reset();
     });
+
+    
+     if (btnSair) {
+        btnSair.addEventListener('click', () => {
+            sessionStorage.removeItem('usuarioLogado');
+            window.location.href = '../login/login.html';
+        });
+
+}
 }
