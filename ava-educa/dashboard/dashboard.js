@@ -2,8 +2,7 @@ import { cursos } from '../dados/listagem-cursos.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const nomeUsuarioHeader = document.getElementById('nomeUsuarioHeader');
-    const nomeUsuario = document.getElementById('nomeUsuario');
-    const listaCursosElement = document.getElementById('listaCursos');
+    const containerCursos = document.getElementById('containerCursos');
     const btnSair = document.getElementById('btnSair');
     const usuarioSessao = sessionStorage.getItem('usuarioLogado');
 
@@ -18,25 +17,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nomeUsuarioHeader) {
             nomeUsuarioHeader.textContent = dadosUsuario.nome || 'Aluno';
         }
-
-        if (nomeUsuario) {
-            nomeUsuario.textContent = dadosUsuario.nome || 'Aluno';
-        }
     } catch (error) {
         sessionStorage.removeItem('usuarioLogado');
         window.location.href = '../login/login.html';
         return;
     }
 
-    if (listaCursosElement) {
-        listaCursosElement.innerHTML = cursos
+    if (containerCursos) {
+        if (cursos.length === 0) {
+            containerCursos.innerHTML = '<div class="aviso-vazio">Nenhum curso disponível.</div>';
+            return;
+        }
+
+        containerCursos.innerHTML = cursos
             .map(
                 (curso) => `
-                    <li>
-                        <strong>${curso.nomeCurso}</strong>
-                        <span>Professor: ${curso.emailProfessor}</span>
-                        <span>Período: ${curso.dataInicio} a ${curso.dataFim}</span>
-                    </li>
+                    <article class="curso-card">
+                        <div class="card-badge">Ativo</div>
+                        <h3 class="curso-nome">${curso.nomeCurso}</h3>
+                        <div class="curso-datas">
+                            <p><strong>Professor:</strong> ${curso.emailProfessor}</p>
+                            <p><strong>Início:</strong> ${curso.dataInicio}</p>
+                            <p><strong>Fim:</strong> ${curso.dataFim}</p>
+                        </div>
+                    </article>
                 `
             )
             .join('');
@@ -49,3 +53,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
