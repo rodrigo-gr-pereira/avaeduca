@@ -33,6 +33,8 @@ body {
     border-radius: 20px;
 }
 
+
+
 /* Container que divide o Menu Lateral e o Conteúdo */
 .app-container {
     display: flex;
