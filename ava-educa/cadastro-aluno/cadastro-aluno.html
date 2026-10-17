@@ -24,7 +24,7 @@
         <a href="../dashboard/dashboard.html" class="nav-btn target-active">Dashboard</a>
         <button class="nav-btn" disabled title="Funcionalidade indisponível">Cursos</button>
         <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
-        <button id="btnSair" class="nav-btn btn-sair">Sair</button>
+        <button id="btnSair" class="nav-btn btn-sair" type="button">Sair</button>
       </nav>
     </aside>
 
@@ -35,7 +35,8 @@
       </div>
 
       <!-- Alerta visual para erros JavaScript -->
-      <div id="mensagemErro" class="aviso-erro" style="display: none;"></div>
+      <div id="mensagemErro" class="aviso-erro" role="alert" style="display: none;"></div>
+      <div id="mensagemSucesso" class="aviso-sucesso" role="status" style="display: none;"></div>
 
       <form id="formCadastroAluno" class="form-cadastro">
 
