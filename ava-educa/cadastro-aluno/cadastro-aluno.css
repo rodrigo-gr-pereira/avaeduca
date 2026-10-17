@@ -1,0 +1,311 @@
+/* Configuração básica para o layout não ficar colado nas bordas do navegador */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+}
+
+/* ==========================================================================
+   TOOLBAR / CABEÇALHO GLOBAL
+   ========================================================================== */
+.toolbar {
+    display: flex;
+    justify-content: space-between; /* Alinha marca à esquerda e usuário à direita */
+    align-items: center;
+    background-color: #2c3e50; /* Cor escura profissional */
+    color: #ffffff;
+    padding: 0 24px;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar-brand {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.toolbar-user {
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+
+/* Container que divide o Menu Lateral e o Conteúdo */
+.app-container {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 60px); /* Ocupa o restante da tela abaixo da topbar */
+}
+
+/* ==========================================================================
+   MENU LATERAL (SIDEBAR)
+   ========================================================================== */
+.sidebar {
+    width: 215px;
+    background-color: #1a252f; /* Um tom ligeiramente mais escuro que a topbar */
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 12px;
+}
+
+/* Estilo vertical dos botões */
+.nav-btn {
+    background: transparent;
+    color: #bdc3c7;
+    border: none;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    text-align: left;
+    width: 70%;
+}
+
+/* Efeito Hover nos botões ativos do menu */
+.nav-btn:not([disabled]):hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+/* Destaque para identificar a página atual (opcional) */
+.nav-btn.target-active {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+/* Botão Cursos (Desabilitado) */
+.nav-btn[disabled] {
+    color: #7f8c8d;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Botão Sair fixado na parte inferior do menu ou com destaque vermelho */
+.btn-sair {
+    color: #e74c3c;
+    margin-top: 20px; /* Dá um espaçamento visual do bloco de navegação */
+    border: 1px dashed rgba(231, 76, 60, 0.2);
+}
+
+.btn-sair:not([disabled]):hover {
+    background-color: #e74c3c !important;
+    color: #ffffff !important;
+}
+
+
+/* Espaçamento para o conteúdo abaixo do cabeçalho */
+.conteudo-principal {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto; /* Permite rolar apenas o conteúdo se ele for muito longo */
+    background-color: #f5f7fa;
+}
+
+.aviso-erro,
+.aviso-sucesso {
+    margin: 0 0 16px;
+    padding: 12px 16px;
+    border-radius: 6px;
+}
+
+.aviso-erro {
+    color: #842029;
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+}
+
+.aviso-sucesso {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+}
+
+/* ==========================================================================
+   CONTAINER DO FORMULÁRIO DE CADASTRO
+   ========================================================================== */
+.form-cadastro {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    max-width: 950px;
+    margin-top: 10px;
+}
+
+/* Blocos de Seções (Dados Pessoais / Endereço) */
+.form-section {
+    border: none;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.form-section legend {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 24px;
+    padding: 0;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================================================
+   ALINHAMENTO EM LINHAS E COLUNAS (FLEXBOX)
+   ========================================================================== */
+.form-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Proporções dinâmicas das colunas */
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.flex-full { flex: 1 1 100%; }
+
+/* ==========================================================================
+   ESTILIZAÇÃO DOS INPUTS, LABELS E SELECTS
+   ========================================================================== */
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+    transition: color 0.2s ease;
+}
+
+.form-group input, 
+.form-group select {
+    padding: 12px 16px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #334155;
+    background-color: #f8fafc;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito ao focar no campo */
+.form-group input:focus, 
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+}
+
+.form-group input:focus + label {
+    color: #3498db;
+}
+
+/* Customização leve para o placeholder */
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   ALERTAS VISUAIS DE FEEDBACK (ERRO E SUCESSO)
+   ========================================================================== */
+.aviso-sucesso, 
+.aviso-erro {
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+    font-size: 15px;
+    font-weight: 600;
+    max-width: 950px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    animation: surgimentoSuave 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aviso-sucesso {
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+}
+
+.aviso-erro {
+    background-color: #fff5f5;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+}
+
+/* ==========================================================================
+   BOTÃO DE SUBMISSÃO
+   ========================================================================== */
+.form-actions {
+    text-align: right;
+    padding-top: 10px;
+}
+
+.btn-salvar {
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-salvar:hover {
+    background-color: #27ae60;
+    box-shadow: 0 6px 16px rgba(39, 174, 96, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-salvar:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(39, 174, 96, 0.2);
+}
+
+/* ==========================================================================
+   ANIMAÇÕES COGNITIVAS
+   ========================================================================== */
+@keyframes surgimentoSuave {
+    from { 
+        opacity: 0; 
+        transform: translateY(-12px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}

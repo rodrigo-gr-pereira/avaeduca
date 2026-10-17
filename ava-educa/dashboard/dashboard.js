@@ -1,37 +1,57 @@
 import { cursos } from '../dados/listagem-cursos.js';
 
-const nomeUsuario = document.getElementById('nomeUsuario');
-const listaCursos = document.getElementById('listaCursos');
-const btnSair = document.getElementById('btnSair');
+document.addEventListener('DOMContentLoaded', () => {
+    const nomeUsuarioHeader = document.getElementById('nomeUsuarioHeader');
+    const containerCursos = document.getElementById('containerCursos');
+    const btnSair = document.getElementById('btnSair');
+    const usuarioSessao = sessionStorage.getItem('usuarioLogado');
 
-const usuarioLogado = sessionStorage.getItem('usuarioLogado');
-
-if (!usuarioLogado) {
-    window.location.href = '../login/login.html';
-} else {
-    const usuario = JSON.parse(usuarioLogado);
-    if (nomeUsuario) {
-        nomeUsuario.textContent = usuario.nome || 'Aluno';
+    if (!usuarioSessao) {
+        window.location.href = '../login/login.html';
+        return;
     }
 
-    if (listaCursos) {
-        listaCursos.innerHTML = cursos
+    try {
+        const dadosUsuario = JSON.parse(usuarioSessao);
+
+        if (nomeUsuarioHeader) {
+            nomeUsuarioHeader.textContent = dadosUsuario.nome || 'Aluno';
+        }
+    } catch (error) {
+        sessionStorage.removeItem('usuarioLogado');
+        window.location.href = '../login/login.html';
+        return;
+    }
+
+    if (containerCursos) {
+        if (cursos.length === 0) {
+            containerCursos.innerHTML = '<div class="aviso-vazio">Nenhum curso disponível.</div>';
+            return;
+        }
+
+        containerCursos.innerHTML = cursos
             .map(
                 (curso) => `
-                    <li>
-                        <strong>${curso.nomeCurso}</strong>
-                        <span>Professor: ${curso.emailProfessor}</span>
-                        <span>Período: ${curso.dataInicio} a ${curso.dataFim}</span>
-                    </li>
+                    <article class="curso-card">
+                        <div class="card-badge">Ativo</div>
+                        <h3 class="curso-nome">${curso.nomeCurso}</h3>
+                        <div class="curso-datas">
+                            <p><strong>Professor:</strong> ${curso.emailProfessor}</p>
+                            <p><strong>Início:</strong> ${curso.dataInicio}</p>
+                            <p><strong>Fim:</strong> ${curso.dataFim}</p>
+                        </div>
+                    </article>
                 `
             )
             .join('');
     }
-}
 
-if (btnSair) {
-    btnSair.addEventListener('click', () => {
-        sessionStorage.removeItem('usuarioLogado');
-        window.location.href = '../login/login.html';
-    });
-}
+    if (btnSair) {
+        btnSair.addEventListener('click', () => {
+            sessionStorage.removeItem('usuarioLogado');
+            window.location.href = '../login/login.html';
+        });
+    }
+});
+
+

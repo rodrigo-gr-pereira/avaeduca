@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <script type="module" src="./dashboard.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <h1>AVA-EDUCA+</h1>
-      <p>Bem-vindo, <span id="nomeUsuario">Aluno</span></p>
-      <button id="btnSair" type="button">Sair</button>
-    </header>
 
-    <main>
-      <section>
-        <h2>Meus cursos</h2>
-        <ul id="listaCursos"></ul>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - AVA-EDUCA+</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script type="module" src="./dashboard.js" defer></script>
+</head>
 
-      <section>
-        <a href="../cadastro-aluno/cadastro-aluno.html">Cadastrar aluno</a>
+<body>
+  <header class="toolbar">
+    <div class="toolbar-brand">AVA-EDUCA+</div>
+    <div class="toolbar-user" id="nomeUsuarioHeader">Carregando...</div>
+  </header>
+
+  <!-- CONTAINER DO CORPO DA PÁGINA (MENU LATERAL + CONTEÚDO) -->
+  <div class="app-container">
+
+    <!-- 2. MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="./dashboard.html" class="nav-btn target-active">Dashboard</a>
+        <button class="nav-btn" disabled title="Funcionalidade indisponível">Cursos</button>
+        <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
+        <button id="btnSair" class="nav-btn btn-sair" type="button">Sair</button>
+      </nav>
+    </aside>
+
+    <!-- ÁREA DO CONTEÚDO DA PÁGINA -->
+    <main class="conteudo-principal">
+      <div class="dashboard-header">
+        <h1>Meus Cursos</h1>
+        <p>Confira abaixo os cursos em que você atua no sistema.</p>
+      </div>
+
+      <!-- Container onde os cards de cursos serão renderizados -->
+      <section id="containerCursos" class="grid-cursos">
+        <!-- Injetado dinamicamente pelo JavaScript -->
       </section>
     </main>
-  </body>
+  </div>
+</body>
+
 </html>
