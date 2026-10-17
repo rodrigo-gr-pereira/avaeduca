@@ -309,3 +309,64 @@ body {
         transform: translateY(0); 
     }
 }
+
+/* ==========================================================================
+   RESPONSIVIDADE: MUDANÇA DA SIDEBAR PARA O TOPO (Até 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Altera a direção do container para empilhar verticalmente */
+    .app-container {
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 60px);
+    }
+
+    /* 2. Transforma a Sidebar em uma barra horizontal no topo */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        background-color: #1a252f;
+        border-right: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* 3. Alinha os botões lado a lado com rolagem horizontal se necessário */
+    .sidebar-nav {
+        flex-direction: row;      /* Organiza os itens em linha */
+        justify-content: flex-start; /* Alinha os botões a partir da esquerda */
+        overflow-x: auto;         /* Cria barra de rolagem horizontal por toque */
+        padding: 0 16px;
+        gap: 8px;
+        white-space: nowrap;      /* Impede que o texto dos botões quebre linha */
+        
+        /* Oculta a barra de rolagem visual mantendo a função do touch */
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .sidebar-nav::-webkit-scrollbar {
+        display: none; 
+    }
+
+    /* 4. Ajusta o tamanho e comportamento dos botões no formato horizontal */
+    .nav-btn {
+        display: inline-flex;
+        align-items: center;
+        width: auto;              /* Deixa o botão proporcional ao texto */
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    /* 5. Remove o espaçamento vertical superior que tínhamos no botão Sair */
+    .btn-sair {
+        margin-top: 0;
+    }
+
+    /* 6. Garante que a área de conteúdo ocupe o resto da tela abaixo do menu */
+    .conteudo-principal {
+        flex: 1;
+        padding: 24px 16px;
+        overflow-y: visible;
+    }
+}
+
