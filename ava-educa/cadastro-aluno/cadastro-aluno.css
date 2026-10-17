@@ -136,3 +136,176 @@ body {
     background-color: #d1e7dd;
     border: 1px solid #badbcc;
 }
+
+/* ==========================================================================
+   CONTAINER DO FORMULÁRIO DE CADASTRO
+   ========================================================================== */
+.form-cadastro {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    max-width: 950px;
+    margin-top: 10px;
+}
+
+/* Blocos de Seções (Dados Pessoais / Endereço) */
+.form-section {
+    border: none;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.form-section legend {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 24px;
+    padding: 0;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================================================
+   ALINHAMENTO EM LINHAS E COLUNAS (FLEXBOX)
+   ========================================================================== */
+.form-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Proporções dinâmicas das colunas */
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.flex-full { flex: 1 1 100%; }
+
+/* ==========================================================================
+   ESTILIZAÇÃO DOS INPUTS, LABELS E SELECTS
+   ========================================================================== */
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+    transition: color 0.2s ease;
+}
+
+.form-group input, 
+.form-group select {
+    padding: 12px 16px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #334155;
+    background-color: #f8fafc;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito ao focar no campo */
+.form-group input:focus, 
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+}
+
+.form-group input:focus + label {
+    color: #3498db;
+}
+
+/* Customização leve para o placeholder */
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   ALERTAS VISUAIS DE FEEDBACK (ERRO E SUCESSO)
+   ========================================================================== */
+.aviso-sucesso, 
+.aviso-erro {
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+    font-size: 15px;
+    font-weight: 600;
+    max-width: 950px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    animation: surgimentoSuave 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aviso-sucesso {
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+}
+
+.aviso-erro {
+    background-color: #fff5f5;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+}
+
+/* ==========================================================================
+   BOTÃO DE SUBMISSÃO
+   ========================================================================== */
+.form-actions {
+    text-align: right;
+    padding-top: 10px;
+}
+
+.btn-salvar {
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-salvar:hover {
+    background-color: #27ae60;
+    box-shadow: 0 6px 16px rgba(39, 174, 96, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-salvar:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(39, 174, 96, 0.2);
+}
+
+/* ==========================================================================
+   ANIMAÇÕES COGNITIVAS
+   ========================================================================== */
+@keyframes surgimentoSuave {
+    from { 
+        opacity: 0; 
+        transform: translateY(-12px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
